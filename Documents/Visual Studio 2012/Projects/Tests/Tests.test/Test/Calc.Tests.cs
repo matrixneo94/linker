@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Moq;
+
 using Tests.test.CodeToTest;
 
 namespace Tests.test.Test
@@ -15,9 +15,6 @@ namespace Tests.test.Test
           [Test]
           public void Calc_Is_Not_Null()
           {
-             var mockContainer = new Mock<ICalc>();
-            
-
               Calc calc = new Calc();
               Assert.IsNotNull(calc.CreateCalc());              
           }

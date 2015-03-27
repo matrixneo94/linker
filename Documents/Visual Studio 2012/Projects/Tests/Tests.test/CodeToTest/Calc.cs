@@ -11,24 +11,24 @@ namespace Tests.test.CodeToTest
     {
         public Calc CreateCalc()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
             
-           // return new Calc();
+            return new Calc();
         }
         public int AddTwoInt(int a, int b)
         {
-            throw new NotImplementedException();
-           // return a + b;
+            //throw new NotImplementedException();
+            return a + b;
         }
         public float SubstractTwoFloat(float a, float b)
         {
-            throw new NotImplementedException();
-           // return a - b;
+            //throw new NotImplementedException();
+            return a - b;
         }
         public double DivisionTwoDouble(double a, double b)
         {
-            throw new NotImplementedException();
-            //return a / b;
+            //throw new NotImplementedException();
+            return a / b;
         }
     }
 }

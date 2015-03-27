@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 
 namespace Tests.test.CodeToTest
 {
-    class Calc
+    interface ICalc
+    {
+        Calc CreateCalc();
+        int AddTwoInt(int a, int b);
+        float SubstractTwoFloat(float a, float b);
+        double DivisionTwoDouble(double a, double b);
+
+    }
+    class Calc:ICalc
     {
         public Calc CreateCalc()
         {

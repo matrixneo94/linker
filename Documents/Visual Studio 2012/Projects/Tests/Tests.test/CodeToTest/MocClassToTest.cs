@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tests.test.CodeToTest
 {
-    public class MocClass
+    public class MocClass 
     {
         private readonly ILogin ilogin;
         public MocClass(ILogin ilogin)

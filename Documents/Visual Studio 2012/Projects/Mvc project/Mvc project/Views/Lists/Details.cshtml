@@ -1,0 +1,39 @@
+﻿@model Mvc_project.Models.Links
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Links</legend>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title):  @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Link): @Html.DisplayFor(model => model.Link)
+    </div>
+
+    <div class="display-label">
+         Current raiting: @Html.DisplayFor(model => model.Raiting)
+    </div>
+
+    <div class="display-label">
+       Latest version solution: @Html.DisplayFor(model => model.AddDate)
+    </div>
+
+    <div class="display-label">
+        Full description of project: @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         Short description of project @Html.DisplayFor(model => model.ShortDescription)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

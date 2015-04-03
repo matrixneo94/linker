@@ -9,13 +9,14 @@ using Mvc_project.Models;
 
 namespace Mvc_project.Controllers
 {
+     [Authorize]
     public class ListsController : Controller
     {
         private MVCProjectDB db = new MVCProjectDB();
 
         //
         // GET: /Lists/
-
+       
         public ActionResult Index()
         {
             return View(db.Links.ToList());
@@ -36,7 +37,7 @@ namespace Mvc_project.Controllers
 
         //
         // GET: /Lists/Create
-
+  
         public ActionResult Create()
         {
             return View();
@@ -46,7 +47,9 @@ namespace Mvc_project.Controllers
         // POST: /Lists/Create
 
         [HttpPost]
+    
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Create(Links links)
         {
             links.AddDate = DateTime.Now.ToString();
@@ -89,8 +92,6 @@ namespace Mvc_project.Controllers
             return View(links);
         }
 
-        //
-        // GET: /Lists/Delete/5
 
         public ActionResult Delete(int id = 0)
         {

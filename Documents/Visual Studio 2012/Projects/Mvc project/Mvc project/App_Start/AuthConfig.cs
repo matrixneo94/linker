@@ -15,8 +15,8 @@ namespace Mvc_project
             // you must update this site. For more information visit http://go.microsoft.com/fwlink/?LinkID=252166
 
             //OAuthWebSecurity.RegisterMicrosoftClient(
-            //    clientId: "",
-            //    clientSecret: "");
+            //  clientId: "",
+            //  clientSecret: "");
 
             //OAuthWebSecurity.RegisterTwitterClient(
             //    consumerKey: "",

@@ -1,9 +1,11 @@
 ﻿using Mvc_project.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using PagedList;
 
 namespace Mvc_project.Controllers
@@ -23,6 +25,17 @@ namespace Mvc_project.Controllers
 
                );
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+ 
+        public ActionResult IncreaseRaiting(int id =0)
+        {
+            Links links = _db.Links.Find(id);
+            links.Raiting = links.Raiting + 1;
+            _db.Entry(links).State = EntityState.Modified;
+            _db.SaveChanges();
+            
+            return RedirectToAction("Index");
+
         }
         public ActionResult Index(string search = null, int page =1)
         {

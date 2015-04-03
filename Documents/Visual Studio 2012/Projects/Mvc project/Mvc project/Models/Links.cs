@@ -12,7 +12,6 @@ namespace Mvc_project.Models
         [Required]
         public string Title { get; set; }       
         public string Link { get; set; }
-        [Range(0,6)]
         public double Raiting { get; set; }
         public string AddDate { get; set; }
         public string Description { get; set; }

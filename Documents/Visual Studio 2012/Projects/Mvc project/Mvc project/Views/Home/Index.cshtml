@@ -20,6 +20,10 @@
         <a href="@item.Link">@item.Link</a>
         <div>@item.ShortDescription</div>
         <div>Raiting: @item.Raiting</div>
+        <p>@Html.ActionLink("IncreaseRaiting", "IncreaseRaiting", new {id = item.ID})
+           
+        </p>
+
     <hr />
     
     </div>

@@ -20,8 +20,8 @@ namespace Mvc_project
         protected void Application_Start()
         
         {
-            //Database.SetInitializer<Models.MVCProjectDB>(null);
-            //WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+            
+            WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

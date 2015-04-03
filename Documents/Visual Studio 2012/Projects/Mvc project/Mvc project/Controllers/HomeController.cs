@@ -64,9 +64,7 @@ namespace Mvc_project.Controllers
         {
             links.AddDate = DateTime.Now.ToString();
             string username = Membership.GetUser().UserName;
-            UserBase user = _db.UsersBase.Where(u => u.UserName.Equals(username)).First();
-
-            links.Author = user;
+            links.Author = _db.UsersBase.Where(u => u.UserName.Equals(username)).First();
             if (ModelState.IsValid)
             {
                 _db.Links.Add(links);
@@ -87,14 +85,19 @@ namespace Mvc_project.Controllers
                 Link = r.URL,
                 Title = r.Title,
                 Raiting = r.Raiting,
-                ShortDescription = r.ShortDescription
+                ShortDescription = r.ShortDescription,
+                Author = r.Author
 
             }).ToPagedList(page, 10);
             if (Request.IsAjaxRequest())
             {
                 return PartialView("Lists", list);
             }
-
+            foreach (var item in list)
+            {
+                Console.Write(item.Author.ToString());
+                
+            }
             return View(list);
         }
         public ActionResult Edit(int id = 0)

@@ -15,7 +15,7 @@ body {
 }
 
 a {
-    color: #333;
+    color: #fff;
     outline: none;
     padding-left: 3px;
     padding-right: 3px;
@@ -24,7 +24,7 @@ a {
 
     a:link, a:visited,
     a:active, a:hover {
-        color: #333;
+        color: rgb(192, 33, 55);
     }
 
     a:hover {
@@ -60,7 +60,7 @@ mark {
 
 h1, h2, h3,
 h4, h5, h6 {
-    color: #000;
+    color: rgb(28, 89, 117);
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -79,6 +79,7 @@ h3 {
 
 h4 {
     font-size: 1.1em;
+ 
 }
 
 h5, h6 {
@@ -99,7 +100,7 @@ h5, h6 {
 }
 
 #body {
-    background-color: #efeeef;
+    background-color: #ffffff;
     clear: both;
     padding-bottom: 35px;
 }
@@ -120,7 +121,7 @@ header .content-wrapper {
 
 footer {
     clear: both;
-    background-color: #e2e2e2;
+    background-color: rgb(28,87,127);
     font-size: .8em;
     height: 100px;
 }

@@ -1,12 +1,12 @@
-﻿
-@using Microsoft.Ajax.Utilities
-@model IPagedList<LinksListViewModel>
+﻿@model IPagedList<LinksListViewModel>
 @{
     ViewBag.Title = "Links";
 }
 
 
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <table class="table">
     <tr><td>
             <div class="pagedList" data-otf-target="#LinksList">
@@ -23,31 +23,35 @@
         </td>
     </tr>
 </table>
- <div id="LinksList">
-     <div class="container-fluid">
+ <div id="LinksList" class="container-fluid">
+     <table class="table table">
+         <tbody>
+         @foreach (var item in Model)
+         {
 
-         <table class="table table-bordered">
+             <tr>
 
-             <tbody>
-                 @foreach (var item in Model)
-{
-    <tr>
-                 <td>Raiting: @item.Raiting
+                 <td class="col-sm-4">Raiting: @item.Raiting
                      <p>@Html.ActionLink("IncreaseRaiting", "IncreaseRaiting", new {id = item.ID})</p>
                      <p>@Html.ActionLink("DecreaseRaiting", "DecreaseRaiting", new {id = item.ID})</p>
                  </td>
-                 <td>
+                 <td class="col-sm-8">
                      <h2>@item.Title</h2>
-
-                     <a href="@item.Link">@item.Link</a>
-                     <h4>@item.Author</h4>
-                 </td>
-                 <td>
+                     <a href="@item.Link">@item.Link</a> Created by:  @item.Author.UserName
+                    
+                     @if(User.Identity.Name.Equals(@item.Author.UserName))
+             {
+                 <p>@Html.ActionLink("Edit post","Edit",new{id = item.ID})</p>
+             }
                  </td>
              </tr>
-            <tr><td>@item.ShortDescription</td></tr>
-        }
-             </tbody>
-         </table>
-     </div>
+             <tr>
+                 <td><h5>@item.ShortDescription</h5>
+                     @Html.ActionLink("Details", "Details", new {id = item.ID})
+                 </td>
+             </tr>
+
+         }
+         </tbody>
+     </table>
 </div>

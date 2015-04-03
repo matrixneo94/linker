@@ -26,7 +26,7 @@ namespace Mvc_project
             //    appId: "",
             //    appSecret: "");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

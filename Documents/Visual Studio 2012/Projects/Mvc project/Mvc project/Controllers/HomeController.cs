@@ -74,31 +74,66 @@ namespace Mvc_project.Controllers
 
             return View(links);
         }
-        public ActionResult Index(string search = null, int page =1)
+        public ActionResult Index(string search = null, int page =1,int sortBy = 0)
         {
-          
-            var list = _db.Links.OrderByDescending(r => r.Raiting)      
-                .Where(r=> search ==null||r.Title.StartsWith(search.ToLower()))               
-                .Select(r => new LinksListViewModel
+            switch (sortBy)
             {
-                ID = r.ID,
-                Link = r.URL,
-                Title = r.Title,
-                Raiting = r.Raiting,
-                ShortDescription = r.ShortDescription,
-                Author = r.Author
+                case 0:
+                {
+                    var list = _db.Links.OrderByDescending(r => r.Raiting)
+                        .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
+                        .Select(r => new LinksListViewModel
+                        {
+                            ID = r.ID,
+                            Link = r.URL,
+                            Title = r.Title,
+                            Raiting = r.Raiting,
+                            ShortDescription = r.ShortDescription,
+                            Author = r.Author
 
-            }).ToPagedList(page, 10);
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("Lists", list);
+                        }).ToPagedList(page, 10);
+                    return View(list);
+                    break;
+                }
+                case 1:
+                {
+                    var list = _db.Links.OrderBy(r => r.Title)
+                        .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
+                        .Select(r => new LinksListViewModel
+                        {
+                            ID = r.ID,
+                            Link = r.URL,
+                            Title = r.Title,
+                            Raiting = r.Raiting,
+                            ShortDescription = r.ShortDescription,
+                            Author = r.Author
+
+                        }).ToPagedList(page, 10);
+                    return View(list);
+                    break;
+                }
+                case 2:
+                {
+                    var list = _db.Links.OrderByDescending(r => r.AddDate)
+                        .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
+                        .Select(r => new LinksListViewModel
+                        {
+                            ID = r.ID,
+                            Link = r.URL,
+                            Title = r.Title,
+                            Raiting = r.Raiting,
+                            ShortDescription = r.ShortDescription,
+                            Author = r.Author
+
+                        }).ToPagedList(page, 10);
+                    return View(list);
+                    break;
+                }
+                default:
+                break;
             }
-            foreach (var item in list)
-            {
-                Console.Write(item.Author.ToString());
-                
-            }
-            return View(list);
+            return new HttpNotFoundResult();
+         
         }
         public ActionResult Edit(int id = 0)
         {

@@ -1,4 +1,5 @@
-﻿        <!DOCTYPE html>
+﻿@using System.Threading
+        <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -9,12 +10,16 @@
         @Scripts.Render("~/bundles/modernizr")
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title"><a href="@Url.Action("Index", "Home")"> <img src="@Url.Content(".../Images/image001.jpg")" /></a></p>
+                    <p class="site-title"> <img src="~/Images/image001.jpg" /></p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -27,7 +32,9 @@
                         <ul id="menu">
                             
                             <li> @Html.ActionLink("Create New", "Create", "Home")</li>
-                            <li>@Html.ActionLink("Lists", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Sort by raiting", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Sort by title", "Index", "Home", new {sortBy = 1}, null)</li>
+                            <li>@Html.ActionLink("Sort by date", "Index", "Home", new {sortBy = 2}, null)</li>  
                         </ul>
                     </nav>
                 </div>
@@ -39,15 +46,19 @@
                 @RenderBody()
             </section>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
-                </div>
-            </div>
-        </footer>
-
+       
         @Scripts.Render("~/bundles/otf")
         @RenderSection("scripts", required: false)
-    </body>
+</body>
+<footer>
+    <div class="content-wrapper">
+        <div class="float-left">
+
+            <p>&copy; Created by M. Konicki</p>
+            <hr/>
+        </div>
+    </div>
+</footer>
+
+
 </html>

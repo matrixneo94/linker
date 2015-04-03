@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 using PagedList;
 
@@ -62,7 +63,10 @@ namespace Mvc_project.Controllers
         public ActionResult Create(Link links)
         {
             links.AddDate = DateTime.Now.ToString();
-            links.Author = User.Identity;
+            string username = Membership.GetUser().UserName;
+            UserBase user = _db.UsersBase.Where(u => u.UserName.Equals(username)).First();
+
+            links.Author = user;
             if (ModelState.IsValid)
             {
                 _db.Links.Add(links);

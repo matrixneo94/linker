@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </head>
     <body>
         <header>
@@ -16,12 +18,17 @@
                 </div>
                 <div class="float-right">
                     <section id="login">
-                        @Html.Partial("_LoginPartial")
+                        @if (Request.IsAuthenticated)
+                        {
+                            @Html.Partial("_LoginPartial")
+                        }
                     </section>
                     <nav>
                         <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>                        
-                             <li>@Html.ActionLink("Lists", "Index", "Lists")</li>
+                            
+                            <li> @Html.ActionLink("Create New", "Create", "Home")</li>
+                            <li>@Html.ActionLink("Lists", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Lists", "Index", "Lists")</li>
                         </ul>
                     </nav>
                 </div>

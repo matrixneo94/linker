@@ -12,5 +12,6 @@ namespace Mvc_project.Models
         public string Link { get; set; }
         public double Raiting { get; set; }
         public string ShortDescription { get; set; }
+        public string Author { get; set; }
     }
 }

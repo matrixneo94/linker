@@ -26,7 +26,7 @@ namespace Mvc_project.Models
         public int UserId { get; set; }
         public string UserName { get; set; }
         public string Position { get; set; }
-        public ICollection<Links> Links { get; set; }
+        public ICollection<Link> Links { get; set; }
     }
 
     public class RegisterExternalLoginModel

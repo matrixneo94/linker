@@ -27,7 +27,7 @@ namespace Mvc_project.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Links links = db.Links.Find(id);
+            Link links = db.Links.Find(id);
             if (links == null)
             {
                 return HttpNotFound();
@@ -49,8 +49,7 @@ namespace Mvc_project.Controllers
         [HttpPost]
     
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        public ActionResult Create(Links links)
+        public ActionResult Create(Link links)
         {
             links.AddDate = DateTime.Now.ToString();
             if (ModelState.IsValid)
@@ -68,7 +67,7 @@ namespace Mvc_project.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Links links = db.Links.Find(id);
+            Link links = db.Links.Find(id);
             if (links == null)
             {
                 return HttpNotFound();
@@ -81,7 +80,7 @@ namespace Mvc_project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Links links)
+        public ActionResult Edit(Link links)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +94,7 @@ namespace Mvc_project.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Links links = db.Links.Find(id);
+            Link links = db.Links.Find(id);
             if (links == null)
             {
                 return HttpNotFound();
@@ -110,7 +109,7 @@ namespace Mvc_project.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Links links = db.Links.Find(id);
+            Link links = db.Links.Find(id);
             db.Links.Remove(links);
             db.SaveChanges();
             return RedirectToAction("Index");

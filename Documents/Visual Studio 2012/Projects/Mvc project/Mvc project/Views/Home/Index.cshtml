@@ -1,33 +1,53 @@
 ﻿
+@using Microsoft.Ajax.Utilities
 @model IPagedList<LinksListViewModel>
 @{
     ViewBag.Title = "Links";
 }
-<form method="get" action="@Url.Action("Index")"
-    data-otf-ajax="true" data-otf-target="#LinksList" >
-    <input type="search" name="search" data-otf-autocomplete="@Url.Action("Autocomplete")"/>
-    <input type="submit" value="Search by title" />
-    </form>
-<div id="LinksList">
-    <div class ="pagedList" data-otf-target="#LinksList">
-        @Html.PagedListPager(Model, page=>Url.Action("Index", new{page}),
-        PagedListRenderOptions.MinimalWithItemCountText)
-    </div>
-@foreach (var item in Model)
-{
-    <div>
-        <h3>@item.Title</h3>
-        <a href="@item.Link">@item.Link</a>
-        <div>@item.ShortDescription</div>
-        <div>Raiting: @item.Raiting</div>
-        <p>@Html.ActionLink("IncreaseRaiting", "IncreaseRaiting", new {id = item.ID})
-           
-        </p>
 
-    <hr />
-    
-    </div>
-   
-    
-}
+
+
+<table class="table">
+    <tr><td>
+            <div class="pagedList" data-otf-target="#LinksList">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new {page}),
+                    PagedListRenderOptions.MinimalWithItemCountText)
+            </div>
+        </td>
+        <td>
+            <form method="get" action="@Url.Action("Index")"
+                  data-otf-ajax="true" data-otf-target="#LinksList">
+                <input type="search" name="search" data-otf-autocomplete="@Url.Action("Autocomplete")"/>
+                <input type="submit" value="Search by title"/>
+            </form>
+        </td>
+    </tr>
+</table>
+ <div id="LinksList">
+     <div class="container-fluid">
+
+         <table class="table table-bordered">
+
+             <tbody
+                 @foreach (var item in Model)
+{
+    <tr>
+                 <td>Raiting: @item.Raiting
+                     <p>@Html.ActionLink("IncreaseRaiting", "IncreaseRaiting", new {id = item.ID})</p>
+                     <p>@Html.ActionLink("DecreaseRaiting", "DecreaseRaiting", new {id = item.ID})</p>
+                 </td>
+                 <td>
+                     <h2>@item.Title</h2>
+
+                     <a href="@item.Link">@item.Link</a>
+                     <h4>@item.Author</h4>
+                 </td>
+                 <td>
+                 </td>
+             </tr>
+            <tr><td>@item.ShortDescription</td></tr>
+        }
+             </tbody>
+         </table>
+     </div>
 </div>

@@ -29,13 +29,48 @@ namespace Mvc_project.Controllers
  
         public ActionResult IncreaseRaiting(int id =0)
         {
-            Links links = _db.Links.Find(id);
-            links.Raiting = links.Raiting + 1;
+            Link links = _db.Links.Find(id);
+            links.Raiting = ++links.Raiting;
             _db.Entry(links).State = EntityState.Modified;
             _db.SaveChanges();
             
             return RedirectToAction("Index");
 
+        }
+        public ActionResult DecreaseRaiting(int id = 0)
+        {
+            Link links = _db.Links.Find(id);
+            links.Raiting = --links.Raiting;
+            _db.Entry(links).State = EntityState.Modified;
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+
+        }
+        [Authorize]
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Lists/Create
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Link links)
+        {
+            links.AddDate = DateTime.Now.ToString();
+            links.Author = User.Identity;
+            if (ModelState.IsValid)
+            {
+                _db.Links.Add(links);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(links);
         }
         public ActionResult Index(string search = null, int page =1)
         {
@@ -45,7 +80,7 @@ namespace Mvc_project.Controllers
                 .Select(r => new LinksListViewModel
             {
                 ID = r.ID,
-                Link = r.Link,
+                Link = r.URL,
                 Title = r.Title,
                 Raiting = r.Raiting,
                 ShortDescription = r.ShortDescription
@@ -57,7 +92,37 @@ namespace Mvc_project.Controllers
             }
 
             return View(list);
-        }    
+        }
+        public ActionResult Edit(int id = 0)
+        {
+            Link links = _db.Links.Find(id);
+            if (links == null)
+            {
+                return HttpNotFound();
+            }
+            return View(links);
+        }
+        public ActionResult Details(int id = 0)
+        {
+            Link links = _db.Links.Find(id);
+            if (links == null)
+            {
+                return HttpNotFound();
+            }
+            return View(links);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Link links)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(links).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(links);
+        }
         protected override void Dispose(bool disposing)
         {
             if (_db != null)

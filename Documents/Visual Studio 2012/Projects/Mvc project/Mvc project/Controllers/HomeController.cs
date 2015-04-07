@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -56,7 +57,27 @@ namespace Mvc_project.Controllers
 
         //
         // POST: /Lists/Create
+        // GET: /Movies/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            Link link = _db.Links.Find(id);
+            if (link == null)
+            {
+                return HttpNotFound();
+            }
+            return View(link);
+        }
 
+        // POST: /Movies/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Link movie = _db.Links.Find(id);
+            _db.Links.Remove(movie);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]

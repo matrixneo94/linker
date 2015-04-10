@@ -164,35 +164,17 @@ C:\Users\mkonicki\Desktop\Mvc project\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\mkonicki\Desktop\Mvc project\bin\zh-Hant\System.Spatial.resources.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Mvc project.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Mvc project.pdb
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Antlr3.Runtime.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.AspNet.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.Core.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.OAuth.Consumer.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.OAuth.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.OpenId.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\EntityFramework.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Data.Edm.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Data.OData.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Web.WebPages.OAuth.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Newtonsoft.Json.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\PagedList.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\PagedList.Mvc.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Net.Http.Formatting.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Spatial.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Helpers.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Http.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Http.OData.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Http.WebHost.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Mvc.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Optimization.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.Razor.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.WebPages.Deployment.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.WebPages.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\System.Web.WebPages.Razor.dll
-C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\WebGrease.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\WebMatrix.Data.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\WebMatrix.WebData.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Org.Mentalis.Security.Cryptography.dll
@@ -257,3 +239,4 @@ C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\obj\Debug\Mv
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\obj\Debug\Mvc project.csproj.GenerateResource.Cache
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\obj\Debug\Mvc project.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\obj\Debug\Mvc project.pdb
+C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\Mvc project\bin\Microsoft.Web.Infrastructure.xml

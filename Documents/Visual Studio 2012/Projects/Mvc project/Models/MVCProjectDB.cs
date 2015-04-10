@@ -13,7 +13,7 @@ namespace Mvc_project.Models
             : base("name=DefaultConnection")        
         {
 
-            Database.SetInitializer<MVCProjectDB>(new  CreateDatabaseIfNotExists<MVCProjectDB>());
+            Database.SetInitializer<MVCProjectDB>(new DropCreateDatabaseIfModelChanges<MVCProjectDB>());
         }
         
         public DbSet<Link> Links { get; set; }

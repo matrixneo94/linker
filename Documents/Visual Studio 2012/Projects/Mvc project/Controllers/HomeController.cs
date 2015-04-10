@@ -1,12 +1,9 @@
 ﻿using Mvc_project.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.UI.WebControls;
 using PagedList;
 
 namespace Mvc_project.Controllers
@@ -184,7 +181,7 @@ namespace Mvc_project.Controllers
             return View(link);
         }
 
-        // POST: /Movies/Delete/5
+        // POST: 
         [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

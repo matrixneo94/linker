@@ -3,8 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-
-
 <div class="container">
     <div class="panel panel-default">
         <!-- Default panel contents -->
@@ -13,20 +11,16 @@
             <p>The following links are currently available.</p>
         </div>
         <div class="list-group">
-        
                 @foreach (var item in Model)
                 {
-        
-
                     <button class="list-group-item" onclick=" location.href = '@Url.Action("Details", new {id = item.ID})' ">
-
                         <h2 class="list-group-item-heading text-uppercase text-center">
                            @{
                                var date = DateTime.Now;
                                var date2 = DateTime.Parse(item.AddDate);
                                if (date.Day.Equals(date2.Day) && date.Year.Equals(date2.Year) && date.Month.Equals(date2.Month))
                                {
-                                   <img id="" src="@Url.Content("Images/new.png")"height="35px"width="50px"/>
+                                   <img src="@Url.Content("Images/new.png")"height="35px"width="50px"/>
                                }
                             
                            }

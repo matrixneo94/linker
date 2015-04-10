@@ -263,7 +263,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Images\image001.jpg" />
+    <Content Include="Images\lgbs.jpg" />
     <Content Include="Images\new.png" />
     <Content Include="Images\like.png" />
     <Content Include="Images\unlike.png" />

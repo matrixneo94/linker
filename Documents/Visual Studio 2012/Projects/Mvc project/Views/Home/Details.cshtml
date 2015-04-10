@@ -1,0 +1,38 @@
+﻿@model Mvc_project.Models.Link
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <fieldset>
+        <h2>Details</h2>
+        <div class="display-label col-sm-12">
+            Title: @Html.DisplayFor(model => model.Title)
+        </div>
+
+        <div class="display-label col-sm-12">
+            Address URL: <a href="@Html.DisplayFor(model => model.URL)">@Html.DisplayFor(model => model.URL)</a>
+        </div>
+
+        <div class="display-label col-sm-12">
+            Current raiting: @Html.DisplayFor(model => model.Raiting)
+        </div>
+
+        <div class="display-label col-sm-12">
+            Latest version solution: @Html.DisplayFor(model => model.AddDate)
+        </div>
+
+        <div class="display-label col-sm-12">
+            Full description of project: @Html.DisplayFor(model => model.Description)
+        </div>
+
+        <div class="display-label col-sm-12">
+            Short description of project @Html.DisplayFor(model => model.ShortDescription)
+        </div>
+    </fieldset>
+<p class="col-sm-12">
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    </div>

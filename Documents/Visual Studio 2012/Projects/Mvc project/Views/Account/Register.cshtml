@@ -1,0 +1,38 @@
+﻿@model Mvc_project.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+<div class="container">
+<hgroup class="title">
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+     <form class="form-horizontal">
+        <div class="form-group">
+            <div for="inputEmail" class="col-sm-2 col-md-2 col-lg-2">  Account username:</div>
+            <div class="col-xs-10">
+                @Html.TextBoxFor(m => m.UserName)
+            </div>
+    
+         <div for="inputPassword" class="col-sm-2 col-md-2 col-lg-2"> Account password:</div>
+         <div class="col-sm-4 col-md-10 col-lg-10">
+             @Html.PasswordFor(m => m.Password)
+         </div>
+         <div for="inputPassword" class="col-sm-2 col-md-2 col-lg-2"> Account password:</div>
+         <div class="col-sm-4 col-md-10 col-lg-10">
+             @Html.PasswordFor(m => m.ConfirmPassword)
+         </div>
+    
+        <div class="col-sm-12">
+            <button type="submit" value="Register" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+    </form>
+}
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

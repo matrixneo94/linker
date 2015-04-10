@@ -1,0 +1,78 @@
+﻿@model IPagedList<LinksListViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<script>
+    function checkDate(objectDate) {
+        var currentDate = Date.now();
+        var date = Date.parse(objectDate);
+        if (currentDate.getYear.eq.isEqual(date.getYear) && currentDate.getMonth.isEqual(date.getMonth) && currentDate.getDay.isEqual(date.getDay)) {
+            document.getElementById('new').style.display = "block";
+        }
+    }
+
+</script>
+<script>
+    function details(id) {
+     
+        window.location = "/Home/Details/" + id;
+        
+    }
+</script>
+
+<div class="container">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Products</div>
+        <div class="panel-body">
+            <p>The following links are currently available.</p>
+        </div>
+        <div class="list-group">
+            @foreach (var item in Model)
+            {
+                <button class="list-group-item" onclick=" location.href = '@Url.Action("Details", new {id = item.ID})' ">
+
+                    <h2 class="list-group-item-heading text-uppercase text-center">@item.Title</h2>
+                    <blockquote class="list-group-item-text text-left text-justify">
+                        <p>Short decription: @item.ShortDescription | Created by: @item.Author</p>
+                        <a href="https://@item.Link">@item.Link</a>
+
+                        <p>Raiting: @item.Raiting <a href="@Url.Action("IncreaseRaiting", new {id = item.ID})">
+                                <img src="@Url.Content("Images/like.png")" height="35px"width="35px"/>
+                            </a>
+                            <a href="@Url.Action("DecreaseRaiting", new {id = item.ID})">
+                                <img src="@Url.Content("Images/unlike.png")"height="35px"width="35px"/>
+                            </a>
+                        </p>
+                        @if (User.Identity.Name.Equals(@item.Author.UserName))
+                        {
+                            <p>@Html.ActionLink("Edit post", "Edit", new {id = item.ID}) | @Html.ActionLink("Delete post", "Delete", new {id = item.ID})</p>
+
+
+                        }
+                    </blockquote>
+                </button>
+
+            }
+        </div>
+        </div>
+    <div class="pagedList" data-otf-target="#LinksList">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new {page}),
+            PagedListRenderOptions.MinimalWithItemCountText)
+    </div>
+</div>
+
+  
+
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+  

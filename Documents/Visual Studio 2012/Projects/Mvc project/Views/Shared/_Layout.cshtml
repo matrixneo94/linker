@@ -1,0 +1,89 @@
+﻿@using System.Threading
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 3 Responsive Layout Example</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header>
+    <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="sr-only">Linker</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Linker LGBS</a>
+              
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <form method="get" action="@Url.Action("Index")"
+                              data-otf-ajax="true" data-otf-target="#LinksList" class="navbar-form navbar-left">
+                            <div class="form-group">
+                                 <input type="search" name="search"  placeholder="Search by title" class="form-control"/>
+                            </div>
+                           
+                        </form>
+
+                    </li>
+                    <li>@Html.ActionLink("Create New", "Create", "Home")</li>
+                    <li>@Html.ActionLink("Sort by raiting", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Sort by title", "Index", "Home", new {sortBy = 1}, null)</li>
+                    <li>@Html.ActionLink("Sort by date", "Index", "Home", new {sortBy = 2}, null)</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Hello, @User.Identity.Name<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("LogOff", "LogOff", "Account")</li>
+                                <li>@Html.ActionLink("Change password", "Manage", "Account", routeValues: null, htmlAttributes: new {@class = "username", title = "Manage"})</li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink"})</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<nav>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+</nav>
+@Scripts.Render("~/bundles/otf")
+@RenderSection("scripts", required: false)
+
+<hr>
+<div class="row">
+    <div class="col-sm-2">
+        <footer>
+            <p>&copy; Created by M. Konicki</p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
+  

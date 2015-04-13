@@ -1,0 +1,74 @@
+﻿@model FrontenedWeb.Models.Link
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="container">
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Links</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            @Html.LabelFor(model => model.URL)
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            @Html.EditorFor(model => model.URL)
+            @Html.ValidationMessageFor(model => model.URL)
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            @Html.LabelFor(model => model.ShortDescription)
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            @Html.EditorFor(model => model.ShortDescription)
+            @Html.ValidationMessageFor(model => model.ShortDescription)
+        </div>
+        <div class="col-xs-12">
+            <a href="#largeModal" class="btn btn-primary" data-toggle="modal" data-target="#largeModal">Save</a> | <button onclick=" location.href = '@Url.Action("Index", "Home")' " class="btn btn-primary">Back to list</button>
+            <div id="largeModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Edit</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to save changes?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+    </fieldset>
+}
+    </div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

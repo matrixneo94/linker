@@ -261,7 +261,7 @@ namespace FrontenedWeb.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (var db = new MvcProjectDb())
+                using (var db = new LinkerDb())
                 {
                     UserBase user = db.UsersBase.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

@@ -28,3 +28,34 @@ C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\FrontendWeb\bin\Microsof
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\FrontendWeb\bin\WebMatrix.WebData.xml
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\FrontendWeb\obj\Debug\FrontenedWeb.dll
 C:\Users\mkonicki\Documents\Visual Studio 2012\Projects\FrontendWeb\obj\Debug\FrontenedWeb.pdb
+D:\git\linker\src\bin\FrontenedWeb.dll
+D:\git\linker\src\bin\FrontenedWeb.pdb
+D:\git\linker\src\bin\Microsoft.Web.Infrastructure.dll
+D:\git\linker\src\bin\Microsoft.Web.WebPages.OAuth.dll
+D:\git\linker\src\bin\System.Net.Http.Formatting.dll
+D:\git\linker\src\bin\System.Web.Helpers.dll
+D:\git\linker\src\bin\System.Web.Http.dll
+D:\git\linker\src\bin\System.Web.Http.WebHost.dll
+D:\git\linker\src\bin\System.Web.Mvc.dll
+D:\git\linker\src\bin\System.Web.Razor.dll
+D:\git\linker\src\bin\System.Web.WebPages.Deployment.dll
+D:\git\linker\src\bin\System.Web.WebPages.dll
+D:\git\linker\src\bin\System.Web.WebPages.Razor.dll
+D:\git\linker\src\bin\WebMatrix.Data.dll
+D:\git\linker\src\bin\WebMatrix.WebData.dll
+D:\git\linker\src\bin\Microsoft.Web.Infrastructure.xml
+D:\git\linker\src\bin\System.Net.Http.Formatting.xml
+D:\git\linker\src\bin\System.Web.Helpers.xml
+D:\git\linker\src\bin\System.Web.Http.xml
+D:\git\linker\src\bin\System.Web.Http.WebHost.xml
+D:\git\linker\src\bin\System.Web.Mvc.xml
+D:\git\linker\src\bin\System.Web.Razor.xml
+D:\git\linker\src\bin\System.Web.WebPages.xml
+D:\git\linker\src\bin\System.Web.WebPages.Deployment.xml
+D:\git\linker\src\bin\System.Web.WebPages.Razor.xml
+D:\git\linker\src\bin\WebMatrix.Data.xml
+D:\git\linker\src\bin\Microsoft.Web.WebPages.OAuth.xml
+D:\git\linker\src\bin\WebMatrix.WebData.xml
+D:\git\linker\src\obj\Debug\FrontendWeb.csprojResolveAssemblyReference.cache
+D:\git\linker\src\obj\Debug\FrontenedWeb.dll
+D:\git\linker\src\obj\Debug\FrontenedWeb.pdb

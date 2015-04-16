@@ -13,6 +13,7 @@ namespace Mvc_project
                 "~/Scripts/jquery-ui-{version}.js"
                 ,"~/Scripts/jquery.unobtrusive"
                 , "~/Scripts/jquery.validate"));
+            bundles.Add(new ScriptBundle("~/bundles/linkerScripts").Include("~/Scripts/linkerScripts.js"));
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 

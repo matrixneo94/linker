@@ -21,6 +21,10 @@ a {
     padding-right: 3px;
 
 }
+#itemContainer {
+    margin: 0 auto; 
+ 
+}
 
     a:link, a:visited,
     a:active, a:hover {

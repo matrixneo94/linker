@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
@@ -11,8 +12,9 @@ namespace FrontenedWeb.Controllers
     public class HomeController : Controller
     {
 
-     
-        MvcProjectDb _db = new MvcProjectDb();
+
+        public const int RecordsPerPage = 10;
+        LinkerDb _db = new LinkerDb();
         public ActionResult Autocomplete(string temp)
         {
             var list = _db.Links.OrderByDescending(r => r.Raiting)
@@ -26,7 +28,22 @@ namespace FrontenedWeb.Controllers
                );
             return Json(list, JsonRequestBehavior.AllowGet);
         }
- 
+       public ActionResult GetLinks(int page = 1)
+       {
+           var list = _db.Links.OrderByDescending(r => r.Raiting)
+               .Select(r => new LinksListViewModel
+               {
+                   ID = r.ID,
+                   Link = r.URL,
+                   Title = r.Title,
+                   Raiting = r.Raiting,
+                   ShortDescription = r.ShortDescription,
+                   Author = r.Author.UserName,
+                   AddDate = r.AddDate
+               }).ToPagedList(page, 5);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult IncreaseRaiting(int id =0)
         {
             Link links = _db.Links.Find(id);
@@ -73,7 +90,9 @@ namespace FrontenedWeb.Controllers
 
             return View(links);
         }
-        public ActionResult Index(string search = null, int page =1,int sortBy = 0)
+
+      
+        public ActionResult Index(string search = null, int page = 1,int sortBy = 0)
         {
             switch (sortBy)
             {
@@ -88,10 +107,11 @@ namespace FrontenedWeb.Controllers
                             Title = r.Title,
                             Raiting = r.Raiting,
                             ShortDescription = r.ShortDescription,
-                            Author = r.Author,
+                            Author = r.Author.UserName,
                             AddDate = r.AddDate
 
-                        }).ToPagedList(page, 10);
+                        }).ToPagedList(page, 5);
+                    ViewBag.List = list;
                     return View(list);
                    
        
@@ -107,10 +127,10 @@ namespace FrontenedWeb.Controllers
                             Title = r.Title,
                             Raiting = r.Raiting,
                             ShortDescription = r.ShortDescription,
-                            Author = r.Author,
+                            Author = r.Author.UserName,
                             AddDate = r.AddDate
 
-                        }).ToPagedList(page, 10);
+                        }).ToPagedList(page, 5);
                     return View(list);
    
                 }
@@ -125,10 +145,10 @@ namespace FrontenedWeb.Controllers
                             Title = r.Title,
                             Raiting = r.Raiting,
                             ShortDescription = r.ShortDescription,
-                            Author = r.Author,
+                            Author = r.Author.UserName,
                             AddDate = r.AddDate
 
-                        }).ToPagedList(page, 10);
+                        }).ToPagedList(page, 5);
                     return View(list);
           
                 }
@@ -136,8 +156,13 @@ namespace FrontenedWeb.Controllers
                 break;
             }
             return new HttpNotFoundResult();
-         
         }
+
+
+
+        
+
+
         [Authorize]
         public ActionResult Edit(int id = 0)
         {

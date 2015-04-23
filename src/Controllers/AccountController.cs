@@ -5,6 +5,7 @@ using System.Transactions;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
+using FrontenedWeb.DBContext;
 using FrontenedWeb.Models;
 using Microsoft.Web.WebPages.OAuth;
 using Models;

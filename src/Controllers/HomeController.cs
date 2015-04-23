@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using FrontenedWeb.DBContext;
 using FrontenedWeb.Models;
 using PagedList;
 
@@ -31,7 +32,7 @@ namespace FrontenedWeb.Controllers
        public ActionResult GetLinks(int page = 1)
        {
            var list = _db.Links.OrderByDescending(r => r.Raiting)
-               .Select(r => new LinksListViewModel
+               .Select(r => new LinkListViewModel
                {
                    ID = r.ID,
                    Link = r.URL,
@@ -100,7 +101,7 @@ namespace FrontenedWeb.Controllers
                 {
                     var list = _db.Links.OrderByDescending(r => r.Raiting)
                         .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
-                        .Select(r => new LinksListViewModel
+                        .Select(r => new LinkListViewModel
                         {
                             ID = r.ID,
                             Link = r.URL,
@@ -120,7 +121,7 @@ namespace FrontenedWeb.Controllers
                 {
                     var list = _db.Links.OrderBy(r => r.Title)
                         .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
-                        .Select(r => new LinksListViewModel
+                        .Select(r => new LinkListViewModel
                         {
                             ID = r.ID,
                             Link = r.URL,
@@ -138,7 +139,7 @@ namespace FrontenedWeb.Controllers
                 {
                     var list = _db.Links.OrderByDescending(r => r.AddDate)
                         .Where(r => search == null || r.Title.StartsWith(search.ToLower()))
-                        .Select(r => new LinksListViewModel
+                        .Select(r => new LinkListViewModel
                         {
                             ID = r.ID,
                             Link = r.URL,

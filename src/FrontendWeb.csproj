@@ -195,9 +195,8 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Link.cs" />
-    <Compile Include="Models\LinksList.cs" />
-    <Compile Include="Models\LinksListViewModel.cs" />
-    <Compile Include="Models\LinkerDb.cs" />
+    <Compile Include="Models\LinkListViewModel.cs" />
+    <Compile Include="DBContext\LinkerDb.cs" />
     <Compile Include="Models\UserBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -335,7 +334,9 @@
     <Folder Include="Filters\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
